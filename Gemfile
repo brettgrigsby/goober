@@ -20,6 +20,5 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium'
   gem 'poltergeist'
-
 end
 
