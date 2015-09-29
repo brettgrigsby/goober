@@ -20,5 +20,6 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium'
   gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
