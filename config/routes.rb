@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/login', to: 'sessions#new'
+  get '/logout', to: 'sessions#destroy'
+
   resources :riders, only: [:new, :create, :show]
   resources :drivers, only: [:new, :create, :show]
   
