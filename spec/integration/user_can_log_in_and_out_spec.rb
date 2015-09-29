@@ -22,6 +22,10 @@ describe 'log_in_and_out_process', type: :feature do
     click_button("Log In")
 
     expect(current_path).to eq(rider_path(user))
+
+    click_link("Log Out")
+
+    expect(current_path).to eq(root_path)
   end
 
   it 'lets a driver log in and out' do
@@ -46,5 +50,9 @@ describe 'log_in_and_out_process', type: :feature do
     click_button("Log In")
 
     expect(current_path).to eq(driver_path(user))
+
+    click_link("Log Out")
+
+    expect(current_path).to eq(root_path)
   end
 end
