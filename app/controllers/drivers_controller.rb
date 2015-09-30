@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+  before_action :check_driver, only: [:show]
 
   def new
     @driver = User.new
@@ -26,4 +27,7 @@ class DriversController < ApplicationController
     params.require(:user).permit(:name, :email, :phone_number, :password, :car_make, :car_model, :passenger_cap)
   end
 
+  def check_driver
+    redirect_to root_path unless current_user && current_user.driver?
+  end
 end

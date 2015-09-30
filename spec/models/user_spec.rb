@@ -47,6 +47,7 @@ RSpec.describe User, type: :model do
                     car_make: "Testla", 
                     car_model: "Nodester", 
                     passenger_cap: 3)
+
     expect(user).to be_valid
     
     user.car_make = nil

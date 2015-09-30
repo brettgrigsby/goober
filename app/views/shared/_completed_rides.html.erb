@@ -1,0 +1,33 @@
+<h2>Completed Rides</h2>
+
+<% current_user.completed_rides.each do |ride| %>
+
+  <h4>Rider</h4>
+  <%= ride.rider.name %>
+
+  <h4>Driver</h4>
+  <%= ride.driver.name %>
+
+  <h4>Pickup Location</h4>
+  <%= ride.pickup %>
+
+  <h4>Dropoff Location</h4>
+  <%= ride.dropoff %>
+
+  <h4>Requested Time</h4>
+  <%= ride.requested_time %>
+
+  <h4>Accepted Time</h4>
+  <%= ride.accepted_time %>
+
+  <h4>Pickup Time</h4>
+  <%= ride.pickup_time %>
+
+  <h4>Drop Off Time</h4>
+  <%= ride.dropoff_time %>
+
+  <h4>Ride Cost</h4>
+  <%= number_to_currency ride.cost %>
+
+  <hr>
+<% end %>

@@ -1,4 +1,5 @@
 class RidersController < ApplicationController
+  before_action :check_rider, only: [:show]
 
   def new
     @rider = User.new
@@ -16,9 +17,17 @@ class RidersController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   private
 
   def rider_params
     params.require(:user).permit(:name, :email, :phone_number, :password)
+  end
+
+  def check_rider
+    redirect_to root_path unless current_user && !current_user.driver?
   end
 end

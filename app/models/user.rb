@@ -1,3 +1,5 @@
+require_relative "ride_finder"
+
 class User < ActiveRecord::Base
   has_secure_password
   validates_presence_of :name, :phone_number
@@ -8,5 +10,17 @@ class User < ActiveRecord::Base
 
   def driver?
     role == "driver"
+  end
+
+  def current_ride
+    current_ride ||= rides.where.not(status: "completed").first
+  end
+
+  def rides
+    RideFinder.grab(role, id)
+  end
+
+  def completed_rides
+    rides.where(status: "completed")
   end
 end

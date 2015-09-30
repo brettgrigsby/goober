@@ -1,1 +1,44 @@
 <h1><%= current_user.name %></h1>
+
+<% if current_user.current_ride %>
+
+  <h2>Current Ride</h2>
+
+  <h4>Pickup Location</h4>
+  <%= current_user.current_ride.pickup %>
+
+  <h4>Dropoff Location</h4>
+  <%= current_user.current_ride.dropoff %>
+
+  <h4>Number of Passengers</h4>
+  <%= current_user.current_ride.passenger_number %>
+
+  <h4>Status</h4>
+  <%= current_user.current_ride.status %>
+
+  <%= link_to current_user.current_ride.progress_link, current_user.current_ride, method: "put" %>
+
+<% else %>
+
+  <h2>Available Rides</h2>
+
+  <hr>
+
+  <% active_rides(current_user).each do |ride| %>
+
+    <h4>Pickup Location</h4>
+    <%= ride.pickup %>
+
+    <h4>Dropoff Location</h4>
+    <%= ride.dropoff %>
+
+    <h4>Number of Passengers</h4>
+    <%= ride.passenger_number %>
+    <br>
+    <%= link_to "Accept Ride", ride, method: "put" %>
+
+    <hr>
+  <% end %>
+<% end %>
+
+<%= render "shared/completed_rides" %>

@@ -25,4 +25,19 @@ describe 'rider requests ride', type: :feature do
   it 'sees a link to request ride on show page' do
     expect(page).to have_link("request a ride")
   end
+
+  it 'can request a ride by entering correct info' do
+    click_link("request a ride")
+
+    expect(current_path).to eq(new_ride_path)
+
+    fill_in("Pickup location", with: "some address")
+    fill_in("Dropoff location", with: "another address")
+    fill_in("Number of passengers", with: "3")
+    click_button("Request Ride")
+
+    user = User.last
+    expect(current_path).to eq(rider_path(user))
+    expect(page).to have_content("some address")
+  end
 end

@@ -1,0 +1,12 @@
+<%= form_for @ride do |f| %>
+
+  <%= f.label :pickup, "Pickup location" %>
+  <%= f.text_field :pickup %>
+  <%= f.label :dropoff, "Dropoff location" %>
+  <%= f.text_field :dropoff %>
+  <%= f.label :passenger_number, "Number of passengers" %>
+  <%= f.text_field :passenger_number %>
+
+  <%= f.submit "Request Ride" %>
+
+<% end %>
