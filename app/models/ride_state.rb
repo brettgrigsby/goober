@@ -1,7 +1,7 @@
 class RideState
-  def self.progress(ride, driver)
+  def self.progress(ride, driver_id)
     if ride.status == "active"
-      ride.driver_id = driver.id
+      ride.driver_id = driver_id
       ride.status = "accepted"
       ride.accepted_time = DateTime.now
       ride.save

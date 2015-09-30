@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<p>Goober : 
+<p id="navbar"><strong>Goober</strong> : 
   <% if current_user %>
     <%= link_to("My Page", home_page(current_user)) %> : <%= link_to("Log Out", logout_path) %>
   <% else %>

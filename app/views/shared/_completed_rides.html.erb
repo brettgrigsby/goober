@@ -2,32 +2,32 @@
 
 <% current_user.completed_rides.each do |ride| %>
 
-  <h4>Rider</h4>
-  <%= ride.rider.name %>
+<p>
+  <strong>Rider</strong>: <%= ride.rider.name %> | 
 
-  <h4>Driver</h4>
-  <%= ride.driver.name %>
+  <strong>Driver</strong>: <%= ride.driver.name %> | 
 
-  <h4>Pickup Location</h4>
-  <%= ride.pickup %>
+  <strong>Pickup Location</strong>: <%= ride.pickup %> | 
 
-  <h4>Dropoff Location</h4>
-  <%= ride.dropoff %>
+  <strong>Dropoff Location</strong>: <%= ride.dropoff %>
 
-  <h4>Requested Time</h4>
-  <%= human_time(ride.requested_time) %>
+  <br>
 
-  <h4>Accepted Time</h4>
-  <%= human_time(ride.accepted_time) %>
+  <strong>Requested Time</strong>: <%= human_time(ride.requested_time) %> | 
 
-  <h4>Pickup Time</h4>
-  <%= human_time(ride.pickup_time) %>
+  <strong>Accepted Time</strong>: <%= human_time(ride.accepted_time) %>
 
-  <h4>Drop Off Time</h4>
-  <%= human_time(ride.dropoff_time) %>
+  <br>
 
-  <h4>Ride Cost</h4>
-  <%= number_to_currency ride.cost %>
+  <strong>Pickup Time</strong>: <%= human_time(ride.pickup_time) %> | 
+
+  <strong>Drop Off Time</strong>: <%= human_time(ride.dropoff_time) %>
+
+  <br>
+
+  <strong>Ride Cost</strong>: <%= number_to_currency ride.cost %>
+
+</p>
 
   <hr>
 <% end %>

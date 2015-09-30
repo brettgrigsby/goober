@@ -19,7 +19,7 @@ class RidesController < ApplicationController
 
   def update
     ride = Ride.find(params[:id])
-    RideState.progress(ride, current_user)
+    RideState.progress(ride, current_user.id)
     redirect_to driver_path(current_user)
   end
 
