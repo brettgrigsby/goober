@@ -5,10 +5,14 @@ function updateCurrentRide (rideId) {
     success: function(result) {
       $("#current-ride").remove()
       $("#rider-active-ride").append(result)
-      console.log("updated")
     }
   })
 }
+
+$(document).on("click", "#clear-ride-btn", function() {
+  $("#rider-active-ride").remove()
+})
+
 
 $(document).ready(function () {
   var $activeRide = $("#rider-active-ride")
