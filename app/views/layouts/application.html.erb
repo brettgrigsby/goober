@@ -8,7 +8,13 @@
 </head>
 <body>
 
-<p>Goober : <%= current_user ? link_to("Log Out", logout_path) : link_to("Log In", login_path) %>
+<p>Goober : 
+  <% if current_user %>
+    <%= link_to("My Page", home_page(current_user)) %> : <%= link_to("Log Out", logout_path) %>
+  <% else %>
+    <%= link_to("Log In", login_path) %>
+  <% end %>
+</p>
 
 <%= yield %>
 
