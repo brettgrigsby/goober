@@ -1,3 +1,4 @@
+<% if current_user.current_ride %>
 <div id="current-ride" data-id=<%= current_user.current_ride.id %> data-status=<%= current_user.current_ride.status %>>
 
 <h2>Current Ride</h2>
@@ -22,9 +23,35 @@
   <h4>Picked up at: <%= human_time(current_user.current_ride.pickup_time) %></h4>
 <% end %>
 
-<% if current_user.current_ride.dropoff_time %>
-  <h4>Dropped off at: <%= human_time(current_user.current_ride.dropoff_time) %></h4>
-  <button id="clear-ride-btn">Clear Ride</button>
-<% end %>
 </div>
+
+<% else %>
+
+<div id="current-ride" data-id=<%= current_user.rides.last.id %> data-status=<%= current_user.rides.last.status %>>
+
+<h2>Current Ride</h2>
+
+<h4>Pickup Location</h4>
+<%= current_user.rides.last.pickup %>
+
+<h4>Dropoff Location</h4>
+<%= current_user.rides.last.dropoff %>
+
+<h4>Number of Passengers</h4>
+<%= current_user.rides.last.passenger_number %>
+
+<h4>Status</h4>
+<%= current_user.rides.last.status %>
+
+<h4>Accepted at: <%= human_time(current_user.rides.last.accepted_time) %></h4>
+
+<h4>Picked up at: <%= human_time(current_user.rides.last.pickup_time) %></h4>
+
+<h4>Dropped off at: <%= human_time(current_user.rides.last.dropoff_time) %></h4>
+
+<button id="clear-ride-btn">Clear Ride</button>
+
+</div>
+
+<% end %>
 
