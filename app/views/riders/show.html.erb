@@ -2,7 +2,11 @@
 
 <% if current_user.current_ride %>
 
-  <%= render "shared/current" %>
+  <div id="rider-active-ride">
+
+  <%= render "shared/current_ride" %>
+  
+  </div>
 
 <% else %>
 

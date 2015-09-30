@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :drivers, only: [:new, :create, :show]
   resources :rides, only: [:new, :create, :update]
   
+  get '/updates/:id', to: 'updates#show'
+  put '/updates/:id', to: 'updates#update'
+
 end

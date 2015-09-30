@@ -1,3 +1,5 @@
+<div id="current-ride" data-id=<%= current_user.current_ride.id %> data-status=<%= current_user.current_ride.status %>>
+
 <h2>Current Ride</h2>
 
 <h4>Pickup Location</h4>
@@ -15,3 +17,5 @@
 <% if current_user.driver? %>
   <%= link_to current_user.current_ride.progress_link, current_user.current_ride, method: "put" %>
 <% end %>
+
+</div>
