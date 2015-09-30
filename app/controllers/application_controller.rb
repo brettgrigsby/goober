@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :active_rides
+  helper_method :current_user, :active_rides, :human_time
 
   def current_user
     current_user ||= User.find_by(id: session[:user_id])
@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 
   def active_rides(driver)
     Ride.where(status: "active").where("passenger_number <= ?", driver.passenger_cap)
+  end
+
+  def human_time(date_time)
+    date_time.strftime("%m/%d/%y @ %I:%M %p")
   end
 
 end

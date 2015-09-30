@@ -15,16 +15,16 @@
   <%= ride.dropoff %>
 
   <h4>Requested Time</h4>
-  <%= ride.requested_time %>
+  <%= human_time(ride.requested_time) %>
 
   <h4>Accepted Time</h4>
-  <%= ride.accepted_time %>
+  <%= human_time(ride.accepted_time) %>
 
   <h4>Pickup Time</h4>
-  <%= ride.pickup_time %>
+  <%= human_time(ride.pickup_time) %>
 
   <h4>Drop Off Time</h4>
-  <%= ride.dropoff_time %>
+  <%= human_time(ride.dropoff_time) %>
 
   <h4>Ride Cost</h4>
   <%= number_to_currency ride.cost %>

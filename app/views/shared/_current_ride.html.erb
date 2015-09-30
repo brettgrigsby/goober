@@ -1,0 +1,17 @@
+<h2>Current Ride</h2>
+
+<h4>Pickup Location</h4>
+<%= current_user.current_ride.pickup %>
+
+<h4>Dropoff Location</h4>
+<%= current_user.current_ride.dropoff %>
+
+<h4>Number of Passengers</h4>
+<%= current_user.current_ride.passenger_number %>
+
+<h4>Status</h4>
+<%= current_user.current_ride.status %>
+
+<% if current_user.driver? %>
+  <%= link_to current_user.current_ride.progress_link, current_user.current_ride, method: "put" %>
+<% end %>
