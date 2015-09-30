@@ -3,7 +3,9 @@ function updateCurrentRide (rideId) {
     url: "/updates/" + rideId,
     type: "PUT",
     success: function(result) {
-      console.log(result)
+      $("#current-ride").remove()
+      $("#rider-active-ride").append(result)
+      console.log("updated")
     }
   })
 }
