@@ -10,7 +10,7 @@ function updateCurrentRide (rideId) {
 }
 
 $(document).on("click", "#clear-ride-btn", function() {
-  $("#rider-active-ride").remove()
+  location.reload()
 })
 
 
